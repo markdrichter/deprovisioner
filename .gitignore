@@ -1,0 +1,10 @@
+config.yml
+client_secrets.json
+oauth2service.json
+vars.sh
+local-run.sh
+tds
+results
+*.csv
+*.jar
+.idea

@@ -1,0 +1,82 @@
+Tokens for foo_user@thoughtworks.org:
+ Client ID: 111
+ scopes:
+  https://www.googleapis.com/auth/admin.reports.usage.readonly
+  https://www.googleapis.com/auth/admin.reports.audit.readonly
+  https://www.googleapis.com/auth/admin.directory.device.chromeos
+  https://www.googleapis.com/auth/admin.directory.user
+  https://apps-apis.google.com/a/feeds/compliance/audit/
+  https://www.googleapis.com/auth/apps.groups.settings
+  https://www.googleapis.com/auth/admin.directory.device.mobile
+  https://www.googleapis.com/auth/plus.me
+  https://www.googleapis.com/auth/admin.directory.notifications
+  https://www.googleapis.com/auth/apps.licensing
+  https://www.googleapis.com/auth/calendar
+  https://www.googleapis.com/auth/admin.directory.orgunit
+  https://apps-apis.google.com/a/feeds/domain/
+  https://www.googleapis.com/auth/userinfo.email
+  https://apps-apis.google.com/a/feeds/emailsettings/2.0/
+  https://www.googleapis.com/auth/admin.directory.user.security
+  https://www.googleapis.com/auth/drive.file
+  https://mail.google.com/
+  https://apps-apis.google.com/a/feeds/calendar/resource/
+  https://www.googleapis.com/auth/admin.directory.group
+  https://www.googleapis.com/auth/siteverification
+ displayText: ThoughtWorks Admin Tool
+ userKey: 123456
+
+ Client ID: 222
+ scopes:
+  https://www.googleapis.com/auth/admin.directory.user.readonly
+  https://www.googleapis.com/auth/admin.directory.group.readonly
+  https://www.googleapis.com/auth/userinfo.profile
+  https://www.googleapis.com/auth/drive
+  https://www.googleapis.com/auth/drive.appdata
+  https://www.googleapis.com/auth/userinfo.email
+  https://www.googleapis.com/auth/drive.file
+  https://www.googleapis.com/auth/admin.directory.group
+  https://www.googleapis.com/auth/plus.me
+ displayText: DocuSign
+ userKey: 123456
+
+ Client ID: 333
+ scopes:
+  https://www.google.com/accounts/OAuthLogin
+ displayText: Google Chrome
+ userKey: 101402612345677505146
+
+ Client ID: 444
+ scopes:
+  https://www.googleapis.com/auth/admin.reports.usage.readonly
+  https://www.googleapis.com/auth/admin.reports.audit.readonly
+  https://www.googleapis.com/auth/admin.directory.device.chromeos
+  https://www.googleapis.com/auth/admin.directory.user
+  https://apps-apis.google.com/a/feeds/compliance/audit/
+  https://www.googleapis.com/auth/apps.groups.settings
+  https://www.googleapis.com/auth/admin.directory.device.mobile
+  https://www.googleapis.com/auth/plus.me
+  https://www.googleapis.com/auth/admin.directory.notifications
+  https://www.googleapis.com/auth/apps.licensing
+  https://www.googleapis.com/auth/calendar
+  https://www.googleapis.com/auth/admin.directory.orgunit
+  https://apps-apis.google.com/a/feeds/domain/
+  https://www.googleapis.com/auth/userinfo.email
+  https://apps-apis.google.com/a/feeds/emailsettings/2.0/
+  https://www.googleapis.com/auth/admin.directory.user.security
+  https://www.googleapis.com/auth/drive.file
+  https://mail.google.com/
+  https://www.googleapis.com/auth/admin.directory.group
+  https://apps-apis.google.com/a/feeds/calendar/resource/
+  https://www.googleapis.com/auth/siteverification
+ displayText: GAM
+ userKey: 101402612345677505146
+
+ Client ID: 555
+ scopes:
+  https://docs.googleusercontent.com/
+  https://docs.google.com/feeds/
+  https://spreadsheets.google.com/feeds/
+ displayText: box.net
+ userKey: 101402612345677505146
+
+
