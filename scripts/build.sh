@@ -15,42 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# sh buils.sh <gcp-project> <gcp-bucket>
 
+gcloud config set project $1
+gsutil -m cp -r gs://$2/gam .
+chmod +x gam/gam
+docker build --tag deprovisioner .
+rm -rf gam
 
-if [[ -z ${GO_SERVER_URL} ]]; then
-  echo "Local dev environment detected"
-  if [[ -f vars.sh ]]; then
-    echo "Loading vars.sh"
-    source vars.sh 2> /dev/null
-  else
-    cp vars.sh.example vars.sh
-    echo "Fill the required environment variables on vars.sh"
-    echo "file created for you. DO NOT COMMIT THIS FILE"
-    exit 1
-  fi
-fi
-
-IMAGE_NAME=${ROOT_NAME}_${ENV_TYPE}
-
-buildContainer() {
-  echo "Building container"
-`which docker` build \
-  --build-arg "ENV_TYPE=${ENV_TYPE}" \
-  -t ${IMAGE_NAME} \
-  -f docker/Dockerfile \
-  .
-
-}
-
-tagPushContainer() {
-  echo "Tagging container"
-  docker tag \
-    ${IMAGE_NAME} \
-    ${REGISTRY}${IMAGE_NAME}:${PIPELINE_COUNTER}
-  echo "Pushing container"
-  docker push ${REGISTRY}${IMAGE_NAME}:${PIPELINE_COUNTER}
-}
-
-buildContainer
-tagPushContainer
 

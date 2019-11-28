@@ -8,3 +8,6 @@ results
 *.csv
 *.jar
 .idea
+gam/
+config.prod.yml
+
