@@ -1,13 +1,10 @@
-config.yml
+/config.*
 client_secrets.json
 oauth2service.json
 vars.sh
 local-run.sh
 tds
 results
-*.csv
-*.jar
+/*.csv
 .idea
 gam/
-config.prod.yml
-
