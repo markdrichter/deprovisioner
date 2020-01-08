@@ -8,3 +8,4 @@ results
 /*.csv
 .idea
 gam/
+/buildit.sh
