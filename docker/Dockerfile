@@ -28,3 +28,5 @@ COPY spec /app/spec
 COPY units.sh /app/
 COPY config.prod.yml /app/config.yml
 COPY run.sh /app/run.sh
+ENV PORT 8080
+EXPOSE 8080
