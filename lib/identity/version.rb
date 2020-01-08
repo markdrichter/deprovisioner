@@ -14,7 +14,7 @@
 # limitations under the License.
 
 module Deprovisioner
-  VERSION = '1.5.0'
+  VERSION = '2.0.0'
   class Version
     attr_reader :version
     def initialize
