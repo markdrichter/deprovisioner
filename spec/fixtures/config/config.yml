@@ -1,0 +1,14 @@
+features:
+  google:
+    google_delegate_calendar: true
+    google_deprovision_user: true
+    google_unsubscribe_groups: true
+    google_reset_oauth: true
+    google_get_suspended_users: true
+    google_get_deprovisionable_users: true
+    google_deprovision_users: true
+    google_assign_vfe_license: true
+
+log: test
+results: test
+vfe_org: /Former employees

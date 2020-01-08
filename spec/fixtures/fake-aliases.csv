@@ -1,0 +1,4 @@
+Alias,Target,TargetType
+a,foo,User
+b,foo,User
+c,bar,User
