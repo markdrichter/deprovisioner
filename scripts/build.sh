@@ -15,12 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# sh buils.sh <gcp-project> <gcp-bucket>
+# sh buils.sh <gcp-project> <gcp-bucket> <environment> <registry>
 
-gcloud config set project $1
-gsutil -m cp -r gs://$2/gam .
+export GOOGLE_CLOUD_PROJECT=$1
+export BUCKET=$2
+export ENV=$3
+export REGISTRY=$4
+gcloud config set project $GOOGLE_CLOUD_PROJECT
+gsutil -m cp -r gs://${BUCKET}/gam .
+gsutil cp gs://${BUCKET}/config.${ENV}.yml .
 chmod +x gam/gam
-docker build --tag deprovisioner .
+docker build -f docker/Dockerfile --tag ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner .
 rm -rf gam
-
+docker push ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner:latest
 
