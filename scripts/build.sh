@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# sh buils.sh <gcp-project> <gcp-bucket> <environment> <registry>
+# sh build.sh <gcp-project> <gcp-bucket> <environment> <registry>
 
 export GOOGLE_CLOUD_PROJECT=$1
 export BUCKET=$2
