@@ -19,14 +19,10 @@ a work-flow across heterogenous apps.
 
 ## Dependencies
 
-Deprovisioner's runtime scripting assumes JRUBY, which is pulled and injected into the container during the build. 
-You may use any Ruby you wish. Deprovisioner's use of Ruby is not complex or exotic so you should
-not expect compatilibty issues.
-GAM (Google Apps Manager) version 3.42. This is downloaded and injected into the container during build.
+GAM (Google Apps Manager). This is downloaded and injected into the container during build.
 
 ## Build
 
-Populate vars.sh according to the template provided in vars.sh.sample.
 Modify scripts/build.sh for _your_ container registry.
 Run scripts/build.sh.
 
