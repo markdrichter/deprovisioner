@@ -15,6 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# export CONFIG_YML=<your config.yml>
 # sh build.sh <gcp-project> <gcp-bucket> <environment> <registry>
 
 export GOOGLE_CLOUD_PROJECT=$1
@@ -25,7 +26,7 @@ gcloud config set project $GOOGLE_CLOUD_PROJECT
 gsutil -m cp -r gs://${BUCKET}/gam .
 gsutil cp gs://${BUCKET}/config.${ENV}.yml .
 chmod +x gam/gam
-docker build -f docker/Dockerfile --tag ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner .
+docker build --build-arg CONFIG=$CONFIG_YML -f docker/Dockerfile --tag ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner .
 rm -rf gam
 docker push ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner:latest
 
