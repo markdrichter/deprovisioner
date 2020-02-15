@@ -1,11 +1,8 @@
 FROM ruby
 
-RUN apt-get install xz-utils -y
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN echo 'gam() { "/app/gam/gam" "$@" ; }' >> ~/.bashrc
-RUN echo 'alias depr="ruby /app/lib/identity.rb $*' >> .bashrc
 RUN mkdir app
 WORKDIR /app
 
@@ -18,15 +15,18 @@ RUN echo "" > /app/gam/noupdatecheck.txt
 
 # Install Deprovisioner
 
+RUN gem update bundler
 COPY Gemfile /app/
 COPY Gemfile.lock /app/
 RUN bundle install
-COPY lib /app/lib
-COPY lib/identity /app/lib/identity
-COPY README.md /app/
-COPY spec /app/spec
+
+ADD lib /app/lib/
+ADD spec /app/spec/
 COPY units.sh /app/
-COPY config.prod.yml /app/config.yml
 COPY run.sh /app/run.sh
+ARG CONFIG
+ENV CONFIG=$CONFIG
+COPY $CONFIG /app/config.yml
+RUN echo 'gam() { "/app/gam/gam" "$@" ; }' >> ~/.bashrc
 ENV PORT 8080
 EXPOSE 8080
