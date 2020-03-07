@@ -22,20 +22,24 @@ class Log
     @config = EngineConfig.new('config.yml')
   end
 
-  def info message
-    log_to_web "#{Time.now} INFO: #{message}"
+  def info (message)
+    logger "#{Time.now} INFO: #{message}"
   end
 
-  def debug message
-    log_to_web "#{Time.now} DEBUG: #{message}"
+  def debug(message)
+    logger "#{Time.now} DEBUG: #{message}"
   end
 
-  def error message
-    log_to_web "#{Time.now} ERROR: #{message}"
+  def error(message)
+    logger "#{Time.now} ERROR: #{message}"
   end
 
-  def log_to_web message
-    return unless @config.web_logging
+  def logger (message)
+    if @config.web_logging.nil?
+      log_file = File.open(@config.log, 'w')
+      log_file.write(message)
+      return
+    end
     http = HTTPClient.new
     http.post(@config.web_logging, message)
   end
