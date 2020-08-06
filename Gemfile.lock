@@ -9,7 +9,7 @@ GEM
     httpclient (2.8.3)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    rack (2.0.8)
+    rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rspec (3.9.0)
