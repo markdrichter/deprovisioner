@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ruby $GEM_HOME/bin/rspec spec/units --format documentation
+docker run -it $REGISTRY/$CONTAINER:$VERSION rspec spec/units --format documentation
