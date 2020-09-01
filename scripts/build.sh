@@ -5,13 +5,11 @@
 
 export GOOGLE_CLOUD_PROJECT=$1
 export BUCKET=$2
-export ENV=$3
-export REGISTRY=$4
+export REGISTRY=$3
+export CONFIG_YML=config.yml
 gcloud config set project $GOOGLE_CLOUD_PROJECT
 gsutil -m cp -r gs://${BUCKET}/gam .
-gsutil cp gs://${BUCKET}/config.${ENV}.yml config.yml
 chmod +x gam/gam
-docker build --build-arg CONFIG=$CONFIG_YML -f docker/Dockerfile --tag ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner .
-rm -rf gam
+export THETAG=${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner:latest
+docker build --build-arg CONFIG=$CONFIG_YML -f docker/Dockerfile --tag ${THETAG} .
 docker push ${REGISTRY}/${GOOGLE_CLOUD_PROJECT}/deprovisioner:latest
-
