@@ -1,4 +1,4 @@
-FROM jruby
+FROM ruby:latest
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -23,7 +23,6 @@ RUN bundle install
 ADD lib /app/lib/
 ADD spec /app/spec/
 COPY units.sh /app/
-COPY run.sh /app/run.sh
 ARG CONFIG
 COPY config.yml /app/config.yml
 RUN echo 'gam() { "/app/gam/gam" "$@" ; }' >> ~/.bashrc
