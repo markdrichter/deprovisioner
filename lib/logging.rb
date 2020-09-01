@@ -15,33 +15,22 @@
 
 class Log
 
-  require 'httpclient'
-  require File.join(File.dirname(__FILE__), 'engine_config.rb')
+  require "google/cloud/logging"
 
   def initialize
-    @config = EngineConfig.new('config.yml')
+    @logger = Google::Cloud::Logging.new
   end
 
   def info (message)
-    logger "#{Time.now} INFO: #{message}"
+    @logger.info message
   end
 
   def debug(message)
-    logger "#{Time.now} DEBUG: #{message}"
+    @logger.debug message
   end
 
   def error(message)
-    logger "#{Time.now} ERROR: #{message}"
-  end
-
-  def logger (message)
-    if @config.web_logging.nil?
-      log_file = File.open(@config.log, 'w')
-      log_file.write(message)
-      return
-    end
-    http = HTTPClient.new
-    http.post(@config.web_logging, message)
+    @logger.error message
   end
 
 end
