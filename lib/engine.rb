@@ -85,7 +85,7 @@ module Deprovisioner
   if $PROGRAM_NAME == __FILE__
 
     begin
-      config_file = 'config.yml'
+      config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
       unless File.exists?(config_file)
         msg = 'config.yml is missing'
         Log.new.error msg

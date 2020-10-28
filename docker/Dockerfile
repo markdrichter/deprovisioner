@@ -24,7 +24,7 @@ ADD lib /app/lib/
 ADD spec /app/spec/
 COPY units.sh /app/
 ARG CONFIG
-COPY config.yml /app/config.yml
+COPY config.yml /app/lib/config.yml
 RUN echo 'gam() { "/app/gam/gam" "$@" ; }' >> ~/.bashrc
 ENV PORT 8080
 EXPOSE 8080
